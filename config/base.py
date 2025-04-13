@@ -70,10 +70,10 @@ def get_config():
     # classifier-free guidance for style image
     sample.style_image_guidance_scale = 3.0
     # batch size (per GPU!) to use for sampling.
-    sample.batch_size = 16
+    sample.batch_size = 4
     # number of batches to sample per epoch. the total number of samples per epoch is `num_batches_per_epoch *
     # batch_size * num_gpus`.
-    sample.num_batches_per_epoch = 4
+    sample.num_batches_per_epoch = 2
     # resize the loaded base image to a smaller resolution to train quicker (None or int)
     sample.data_resize = 256
     # Number of edits to generate for one input sample (binary->2)
@@ -82,7 +82,7 @@ def get_config():
     ############ Training ############
     config.train = train = ml_collections.ConfigDict()
     # batch size (per GPU!) to use for training.
-    train.batch_size = 2
+    train.batch_size = 1
     # whether to use the 8bit Adam optimizer from bitsandbytes.
     train.use_8bit_adam = False
     # learning rate.
@@ -97,7 +97,7 @@ def get_config():
     train.adam_epsilon = 1e-8
     # number of gradient accumulation steps. the effective batch size is `batch_size * num_gpus *
     # gradient_accumulation_steps`.
-    train.gradient_accumulation_steps = 32
+    train.gradient_accumulation_steps = 8
     # maximum gradient norm for gradient clipping.
     train.max_grad_norm = 1.0
     # number of inner epochs per outer epoch. each inner epoch is one iteration through the data collected during one
