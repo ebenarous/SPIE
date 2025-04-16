@@ -118,7 +118,7 @@ def get_config():
     # weight of semantic score relative to structural score
     train.score_alpha = 1
     # pixel reconstruction regularizer
-    train.rec_lambda = 1
+    train.rec_lambda = 0.5
     # Edit entire frame
     train.whole_frame = False
 
