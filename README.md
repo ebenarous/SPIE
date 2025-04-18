@@ -55,7 +55,7 @@ The results presented on [our paper](https://ebenarous.github.io/files/publicati
 ### Objective function Hyperparameters
 `train.score_alpha` and `train.rec_lambda` parameters weigh the relative importance of the semantic, structural and reconstruction scores, they can be slightly adjusted based on the model’s zero-shot capabilities to further optimize learning convergence.
 
-## Citation (pending)
+## Citation
 If you find our work or any of our materials useful, please cite our paper:
 ```
 @misc{benarous2025imageeditingspecialistsrlaifapproach,
