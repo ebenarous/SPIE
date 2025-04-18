@@ -58,8 +58,15 @@ The results presented on [our paper](https://ebenarous.github.io/files/publicati
 ## Citation (pending)
 If you find our work or any of our materials useful, please cite our paper:
 ```
-Title: Image-Editing Specialists: An RLAIF Approach for Diffusion Models
-Authors: Benarous, Elior and Du, Yilun and Yang, Heng 
+@misc{benarous2025imageeditingspecialistsrlaifapproach,
+      title={Image-Editing Specialists: An RLAIF Approach for Diffusion Models}, 
+      author={Elior Benarous and Yilun Du and Heng Yang},
+      year={2025},
+      eprint={2504.12833},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2504.12833}, 
+}
 ```
 
 ## Acknowledgements
