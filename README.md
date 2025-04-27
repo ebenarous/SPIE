@@ -1,5 +1,5 @@
 # Image-Editing Specialists: An RLAIF Approach for Diffusion Models
-The official code for the paper [Image-Editing Specialists: An RLAIF Approach for Diffusion Models](https://ebenarous.github.io/files/publications/edit_spe/Image_Editing_Specialists.pdf). You can directly fine-tune the diffusion model through AI model feedback without the need to train a reward model.
+The official code for the paper [Image-Editing Specialists: An RLAIF Approach for Diffusion Models](https://arxiv.org/abs/2504.12833). You can directly fine-tune the diffusion model through AI model feedback without the need to train a reward model.
 
 ![ex_image](imgs/top_img.png)
 
@@ -50,7 +50,7 @@ These are implicitly determined by various other hyperparameters. Batch sizes ar
 
 At the beginning of each training run, the script will print out the calculated value for the number of images generated per epoch, the effective total training batch size, and the number of training steps per epoch. Make sure to double-check these numbers!
 
-The results presented on [our paper](https://ebenarous.github.io/files/publications/edit_spe/Image_Editing_Specialists.pdf) were achieved with a total training batch size of 256, and experiments were conducted on A100 & H100 NVIDIA GPUs.
+The results presented on [our paper](https://arxiv.org/abs/2504.12833) were achieved with a total training batch size of 256, and experiments were conducted on A100 & H100 NVIDIA GPUs.
 
 ### Objective function Hyperparameters
 `train.score_alpha` and `train.rec_lambda` parameters weigh the relative importance of the semantic, structural and reconstruction scores, they can be slightly adjusted based on the model’s zero-shot capabilities to further optimize learning convergence.
