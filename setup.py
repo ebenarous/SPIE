@@ -31,9 +31,9 @@ general_reqs = [
 ]
 
 setup(
-    name="EditSpecialists",
+    name="SPIE",
     version="0.0.1",
-    packages=["EditSpecialists"],
+    packages=["SPIE"],
     python_requires=">=3.10",
     install_requires=general_reqs+dreamsim_reqs+SAM2_reqs+imagereward_reqs,
 )

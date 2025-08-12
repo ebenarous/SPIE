@@ -1,13 +1,13 @@
-# Image-Editing Specialists: An RLAIF Approach for Diffusion Models
-The official code for the paper [Image-Editing Specialists: An RLAIF Approach for Diffusion Models](https://arxiv.org/abs/2504.12833). You can directly fine-tune the diffusion model through AI model feedback without the need to train a reward model.
+# SPIE: Semantic and Structural Post-Training of Image Editing Diffusion Models with AI feedback
+The official code for the paper [SPIE: Semantic and Structural Post-Training of Image Editing Diffusion Models with AI feedback](https://arxiv.org/abs/2504.12833). You can directly fine-tune the diffusion model through AI model feedback without the need to train a reward model.
 
 ![ex_image](imgs/top_img.png)
 
 ## Requirements
 Requires Python 3.10 or newer.
 ```
-git clone https://github.com/ebenarous/EditSpecialists.git
-cd EditSpecialists
+git clone https://github.com/ebenarous/SPIE.git
+cd SPIE
 pip install -e .
 ```
 
@@ -18,7 +18,7 @@ bash download_repos.sh
 Our work leverages AI models to evaluate generated images. 
 Some are accessed via [HuggingFace](https://huggingface.co/), others through their original repository manually.
 The file `download_repos.sh` clones the repositories for models needed in both training and evaluation.
-You can change the models used to provide structural and semantic feedback by modifying the functions in `EditSpecialists/reward_modeling`.
+You can change the models used to provide structural and semantic feedback by modifying the functions in `SPIE/reward_modeling`.
 
 ## Usage
 ### Training
@@ -26,7 +26,7 @@ You can change the models used to provide structural and semantic feedback by mo
 accelerate launch scripts/train.py
 ```
 This will start finetuning [InstructPix2Pix](https://github.com/timothybrooks/instruct-pix2pix) on all available GPUs using the config from `config/base.py`.
-In `config/base.py`, you can specify the folders where your images are located, and the edit you want to specialize on. You can also create a custom dataloader by modifying `EditSpecialists/data/dataset.py`.
+In `config/base.py`, you can specify the folders where your images are located, and the edit you want to specialize on. You can also create a custom dataloader by modifying `SPIE/data/dataset.py`.
 Note that the default hyperparameters are meant to get the code up and running quickly. You should adjust them to achieve better performance, especially the number of samples per epoch and gradient accumulation steps.
 ### Sampling
 ```
@@ -59,7 +59,7 @@ The results presented on [our paper](https://arxiv.org/abs/2504.12833) were achi
 If you find our work or any of our materials useful, please cite our paper:
 ```
 @misc{benarous2025imageeditingspecialistsrlaifapproach,
-      title={Image-Editing Specialists: An RLAIF Approach for Diffusion Models}, 
+      title={SPIE: Semantic and Structural Post-Training of Image Editing Diffusion Models with AI feedback}, 
       author={Elior Benarous and Yilun Du and Heng Yang},
       year={2025},
       eprint={2504.12833},

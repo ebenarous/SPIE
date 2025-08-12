@@ -24,12 +24,12 @@ import torch.nn as nn
 from peft import LoraConfig, get_peft_model
 from torch.utils.data import DataLoader
 
-import EditSpecialists.reward_modeling.score_functions
-from EditSpecialists.diffusion_pipeline.ddim_with_logprob import ddim_step_with_logprob
-from EditSpecialists.diffusion_pipeline.eulerancestral_withlogprob import eulerancestral_step_with_logprob
-from EditSpecialists.diffusion_pipeline.ip2p_pipeline import instruct_pix2pix_pipeline_with_logprob
-from EditSpecialists.diffusion_pipeline.architecture import CA_PreconvModule, single_noise_pred
-from EditSpecialists.data.dataset import SamplingDataset
+import SPIE.reward_modeling.score_functions
+from SPIE.diffusion_pipeline.ddim_with_logprob import ddim_step_with_logprob
+from SPIE.diffusion_pipeline.eulerancestral_withlogprob import eulerancestral_step_with_logprob
+from SPIE.diffusion_pipeline.ip2p_pipeline import instruct_pix2pix_pipeline_with_logprob
+from SPIE.diffusion_pipeline.architecture import CA_PreconvModule, single_noise_pred
+from SPIE.data.dataset import SamplingDataset
 
 tqdm = partial(tqdm.tqdm, dynamic_ncols=True)
 
@@ -77,7 +77,7 @@ def main(_):
     )
     if accelerator.is_main_process:
         accelerator.init_trackers(
-            project_name="EditSpecialists", config=config.to_dict(), 
+            project_name="SPIE", config=config.to_dict(), 
             init_kwargs={"wandb": {"name": config.run_name}}
         )
     logger.info(f"\n{config}")
@@ -213,8 +213,8 @@ def main(_):
     )
 
     # prepare score functions
-    structural_fn = getattr(EditSpecialists.reward_modeling.score_functions, "structural_score")(device=accelerator.device)
-    semantic_fn = getattr(EditSpecialists.reward_modeling.score_functions, "semantic_score")(device=accelerator.device)
+    structural_fn = getattr(SPIE.reward_modeling.score_functions, "structural_score")(device=accelerator.device)
+    semantic_fn = getattr(SPIE.reward_modeling.score_functions, "semantic_score")(device=accelerator.device)
     
     # generate negative prompt embeddings
     neg_prompt_embed = pipeline.text_encoder(

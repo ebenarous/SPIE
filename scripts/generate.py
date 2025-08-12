@@ -8,9 +8,9 @@ from ml_collections import config_flags
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler, DDIMScheduler
 import torchvision.transforms as T
 import numpy as np
-from EditSpecialists.diffusion_pipeline.ip2p_pipeline import instruct_pix2pix_pipeline_with_logprob
-from EditSpecialists.diffusion_pipeline.architecture import CA_PreconvModule
-from EditSpecialists.data.dataset import CustomImageDataset
+from SPIE.diffusion_pipeline.ip2p_pipeline import instruct_pix2pix_pipeline_with_logprob
+from SPIE.diffusion_pipeline.architecture import CA_PreconvModule
+from SPIE.data.dataset import CustomImageDataset
 import torch
 from functools import partial
 import tqdm

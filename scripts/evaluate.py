@@ -13,10 +13,10 @@ import numpy as np
 import os
 from torch.utils.data import DataLoader
 import json
-import EditSpecialists.reward_modeling.score_functions
-import EditSpecialists.evaluation.eval_funcs
+import SPIE.reward_modeling.score_functions
+import SPIE.evaluation.eval_funcs
 from torchvision import transforms as T
-from EditSpecialists.data.dataset import EvalDataset
+from SPIE.data.dataset import EvalDataset
 
 FLAGS = flags.FLAGS
 config_flags.DEFINE_config_file("config", "config/eval.py", "Evaluation configuration.")
@@ -30,12 +30,12 @@ def main(_):
     # Load eval functions
     executor = futures.ThreadPoolExecutor(max_workers=2)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    structural_fn = getattr(EditSpecialists.reward_modeling.score_functions, "structural_score")(device=device)
-    semantic_fn = getattr(EditSpecialists.reward_modeling.score_functions, "semantic_score")(device=device)
-    eval_fn = getattr(EditSpecialists.evaluation.eval_funcs, "eval_main")(device=device)
-    hps_fn = getattr(EditSpecialists.evaluation.eval_funcs, "hpsv2")(device=device)
-    imagereward_fn = getattr(EditSpecialists.evaluation.eval_funcs, "imagereward")(device=device)
-    pickscore_fn = getattr(EditSpecialists.evaluation.eval_funcs, "pickscore")(device=device)
+    structural_fn = getattr(SPIE.reward_modeling.score_functions, "structural_score")(device=device)
+    semantic_fn = getattr(SPIE.reward_modeling.score_functions, "semantic_score")(device=device)
+    eval_fn = getattr(SPIE.evaluation.eval_funcs, "eval_main")(device=device)
+    hps_fn = getattr(SPIE.evaluation.eval_funcs, "hpsv2")(device=device)
+    imagereward_fn = getattr(SPIE.evaluation.eval_funcs, "imagereward")(device=device)
+    pickscore_fn = getattr(SPIE.evaluation.eval_funcs, "pickscore")(device=device)
 
     # Prepare dataloader
     eval_transform = T.Compose([T.Resize(config.data_resize),
