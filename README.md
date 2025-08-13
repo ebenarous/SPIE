@@ -58,7 +58,7 @@ The results presented on [our paper](https://arxiv.org/abs/2504.12833) were achi
 ## Citation
 If you find our work or any of our materials useful, please cite our paper:
 ```
-@misc{benarous2025imageeditingspecialistsrlaifapproach,
+@misc{benarous2025spiesemanticstructuralposttraining,
       title={SPIE: Semantic and Structural Post-Training of Image Editing Diffusion Models with AI feedback}, 
       author={Elior Benarous and Yilun Du and Heng Yang},
       year={2025},
